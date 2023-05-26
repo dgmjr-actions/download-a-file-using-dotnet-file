@@ -1,0 +1,23 @@
+name: Download a file using dotnet-file
+author: David G. Moore, Jr., <david@dgmjr.io>
+description: Downloads a file using the dotnet-file tool
+
+inputs:
+  file-url: 
+    decription: The URL of the file to Download
+    required: true
+  destination-path:
+    description: The destination path of the file (defaults to '.')
+    required: false
+    default: .
+
+runs:
+  using: composite
+  steps: 
+    - id: Restore dotnet-file
+    run: dotnet tool install global dotenet-file
+    shell: bash
+    -id: Download the file
+    run: dotnet file add "${{ inputs.file-url }}" "${{ inputs.destination-path }}"
+    - Clean up .netconfig
+    run: rm -rf .netconfig
