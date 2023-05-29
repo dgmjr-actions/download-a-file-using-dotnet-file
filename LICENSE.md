@@ -1,6 +1,21 @@
-MIT License
+---
+authors:
+- dgmjr
+title: The MIT License
+license: MIT
+lastmod: 2023-01-11T02:45:34.204Z
+keywords:
+  - license
+  - mit
+  - IP
+  - copyright
+description: The MIT License
+date: 2023-01-16T11:55:48.194Z
+slug: mit-license
+---
+# MIT License
 
-Copyright (c) 2023 DGMJR's Actions
+Copyright (c) 2022-2023 [David G. Moore, Jr.](mailto:david@dgmjr.io "Send David an email"), All Rights Reserved
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
