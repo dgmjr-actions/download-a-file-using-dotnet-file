@@ -32,3 +32,4 @@ runs:
       shell: bash
     - id: Clean-up-etconfig
       run: rm -rf .netconfig
+      shell: bash
