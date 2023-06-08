@@ -25,10 +25,10 @@ inputs:
 runs:
   using: composite
   steps: 
-    - id: Ensure `dotnet-file` is installed
+    - id: Ensure-dotnet-file-is-installed
       uses: dgmjr-actions/restore-dotnet-file
-    - id: Download the File
+    - id: Download-the-File
       run: dotnet file add "https://${{ inputs.hostname }}/${{ inputs.repo }}/${{ inputs.filename }}
       shell: bash
-    - id: Clean up .netconfig
+    - id: Clean-up-etconfig
       run: rm -rf .netconfig
