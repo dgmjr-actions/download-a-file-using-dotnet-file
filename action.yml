@@ -21,15 +21,26 @@ inputs:
     description: The git host (if other than GitHub)
     required: false
     default: github.com
+  token:
+    description: The GitHub token to use for authentication
+    required: false
+    default: ''
 
 runs:
   using: composite
   steps: 
     - id: Ensure-dotnet-file-is-installed
-      uses: dgmjr-actions/restore-dotnet-file
-    - id: Download-the-File
-      run: dotnet file add "https://${{ inputs.hostname }}/${{ inputs.repo }}/${{ inputs.filename }}
+      uses: dgmjr-actions/restore-dotnet-file@main
+    - id: Authenticate-with-gh-if-necessary
+      if: ${{ inputs.token }} != ''
+      run: |
+        git config --global credential.helper cache;
+        git config --global credential.credentialStore cache;
+        echo ${{ inputs.token }} | gh auth login --with-token && gh auth setup-git
       shell: bash
-    - id: Clean-up-etconfig
+    - id: Download-the-File
+      run: dotnet file add "https://${{ inputs.hostname }}/${{ inputs.repo }}/${{ inputs.filename }}"
+      shell: bash
+    - id: Clean-up-netconfig
       run: rm -rf .netconfig
       shell: bash

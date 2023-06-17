@@ -1,0 +1,20 @@
+name: Test dgmjr-actions/download-a-file-using-dotnet-file
+
+on: [push, pull_request, workflow_dispatch, workflow_call]
+
+jobs:
+  test_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test-Action
+        uses: dgmjr-actions/download-a-file-using-dotnet-file@main
+        with:
+          repo: dgmjr-actions/download-a-file-using-dotnet-file
+          filename: tree/main/alanturing.webp
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Ensure new file exists
+        shell: bash
+        run: if [ -z $(ls alanturing.webp | grep alanturing.webp) ]; then exit 1; fi;
+            
