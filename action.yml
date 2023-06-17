@@ -26,7 +26,7 @@ runs:
   using: composite
   steps: 
     - id: Ensure-dotnet-file-is-installed
-      uses: dgmjr-actions/restore-dotnet-file
+      uses: dgmjr-actions/restore-dotnet-file@v0.0.5
     - id: Download-the-File
       run: dotnet file add "https://${{ inputs.hostname }}/${{ inputs.repo }}/${{ inputs.filename }}
       shell: bash
