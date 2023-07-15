@@ -13,7 +13,7 @@ jobs:
         with:
           repo: dgmjr-actions/download-a-file-using-dotnet-file
           filename: alanturing.webp
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Ensure new file exists
         shell: bash
         run: if [ -z $(ls alanturing.webp | grep alanturing.webp| ]; then exit 1; fi;
