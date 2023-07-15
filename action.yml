@@ -24,6 +24,7 @@ inputs:
   token:
     description: The GitHub token to use for authentication
     required: false
+    default: ''
 
 runs:
   using: composite
