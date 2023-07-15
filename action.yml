@@ -28,7 +28,7 @@ runs:
     - id: Ensure-dotnet-file-is-installed
       uses: dgmjr-actions/restore-dotnet-file@main
     - id: Download-the-File
-      run: dotnet file add "https://${{ inputs.hostname }}/${{ inputs.repo }}/${{ inputs.filename }}
+      run: dotnet file add "https://${{ inputs.hostname }}/${{ inputs.repo }}/${{ inputs.filename }}"
       shell: bash
     - id: Clean-up-netconfig
       run: rm -rf .netconfig
