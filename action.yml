@@ -1,12 +1,13 @@
-name: Download a file using dotnet-file
+name: Download using dotnet-file
 author: David G. Moore, Jr., <david@dgmjr.io>
 description: Downloads a file (or folder) using the dotnet-file tool
+
 branding:
   icon: download-cloud
   color: blue
 
 inputs:
-  repo: 
+  repo:
     description: The repository from which to download the file (in the format owner/repo-name)
     required: true
   filename:
@@ -28,7 +29,7 @@ inputs:
 
 runs:
   using: composite
-  steps: 
+  steps:
     - id: Ensure-dotnet-file-is-installed
       uses: dgmjr-actions/restore-dotnet-file@main
     - id: Authenticate-with-gh-if-necessary
