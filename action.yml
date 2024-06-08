@@ -37,7 +37,7 @@ runs:
       run: |
         git config --global credential.helper cache;
         git config --global credential.credentialStore cache;
-        echo ${{ inputs.token }} | gh auth login --with-token && gh auth setup-git
+        echo "${{ inputs.token }}" | gh auth login --with-token && gh auth setup-git
       shell: bash
     - id: download-the-file
       run: dotnet file add "https://${{ inputs.hostname }}/${{ inputs.repo }}/${{ inputs.filename }}"
