@@ -35,6 +35,7 @@ runs:
   using: composite
   steps:
     - id: ensure-dotnet-file-is-installed
+      if: ${{ inputs.restore-dotnet-file }}
       uses: dgmjr-actions/restore-dotnet-file@main
     - id: authenticate-with-gh-if-necessary
       if: ${{ inputs.token }} != ''
