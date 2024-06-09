@@ -26,6 +26,10 @@ inputs:
     description: The GitHub token to use for authentication
     required: false
     default: ''
+  restore-dotnet-file:
+    description: Whether to restore the dotnet-file tool
+    required: false
+    default: true
 
 runs:
   using: composite
